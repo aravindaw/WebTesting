@@ -22,7 +22,7 @@ public class HomePageTest {
     public void openBrowser() throws IOException {
         Properties prop = new Properties();
         InputStream input;
-        File file = new File("src/main/resources/path.properties");
+        File file = new File("conf/path.properties");
 
         input = new FileInputStream(file);
         prop.load(input);

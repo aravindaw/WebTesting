@@ -6,6 +6,7 @@ Maven
 Pre-Requirements
 ================
 Chrome web Driver
+Chromium browser
 
 How to run
 ==========
