@@ -32,16 +32,10 @@
             <directory>${appassembler.basedir}/bin</directory>
             <outputDirectory>bin</outputDirectory>
             <includes>
-                <include>WrapperTestApp</include>
+                <include>**/*</include>
             </includes>
             <fileMode>0755</fileMode>
             <lineEnding>unix</lineEnding>
-        </fileSet>
-
-        <fileSet>
-            <directory>${appassembler.basedir}/bin</directory>
-            <outputDirectory>bin</outputDirectory>
-            <fileMode>0755</fileMode>
         </fileSet>
 
         <fileSet>
@@ -58,16 +52,8 @@
             <lineEnding>dos</lineEnding>
         </fileSet>
         <fileSet>
-            <directory>${appassembler.basedir}/bin</directory>
-            <outputDirectory>bin</outputDirectory>
-            <includes>
-                <include>wrapper-windows-x86-32.exe</include>
-            </includes>
-            <fileMode>0755</fileMode>
-        </fileSet>
-        <fileSet>
-            <directory>${appassembler.basedir}</directory>
-            <outputDirectory>${appassembler.basedir}</outputDirectory>
+            <directory>${appassembler.basedir}/</directory>
+            <outputDirectory>/</outputDirectory>
             <includes>
                 <include>*.txt</include>
             </includes>
