@@ -7,10 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
-import org.rzo.yajsw.os.ms.win.w32.WindowsXPMouse;
 
-import java.io.File;
+import java.io.*;
+import java.util.Properties;
 
 /**
  * Created by Aravinda on 12-Aug-16.
@@ -20,8 +19,16 @@ public class HomePageTest {
     private static WebDriver webDriver;
 
     @Before
-    public void openBrowser() {
-        File path = new File("src/main/resources/chromedriver.exe");
+    public void openBrowser() throws IOException {
+        Properties prop = new Properties();
+        InputStream input;
+        File file = new File("src/main/resources/path.properties");
+
+        input = new FileInputStream(file);
+        prop.load(input);
+//        System.out.println(prop.getProperty("chromeDriverPath"));
+
+        File path = new File(prop.getProperty("chromeDriverPath"));
         System.setProperty("webdriver.chrome.driver", path.getAbsolutePath());
         webDriver = new ChromeDriver();
         webDriver.get("https://www.ambitiousaboutautism.org.uk/talk-about-autism");
