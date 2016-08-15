@@ -22,7 +22,7 @@ public class HomePageTest {
 
     @Before
     public void openBrowser() throws IOException {
-        logger.warn("OPEN-BROWSER METHOD CALLED ############################");
+        logger.warn("OPEN-BROWSER METHOD CALLED ..");
         Properties prop = new Properties();
         InputStream input;
         File file = new File("conf/path.properties");
@@ -44,7 +44,7 @@ public class HomePageTest {
     @Test
     public void loginTest() {
         try {
-            logger.warn("LOGIN TEST ############################");
+            logger.warn("LOGIN TEST ..");
             WebElement login = webDriver.findElement(By.id("block-system-user-menu"));
             login.click();
             Thread.sleep(1000);
@@ -64,7 +64,7 @@ public class HomePageTest {
     @Test
     public void pageNavigationTest() {
         try {
-            logger.warn("PAGE NAVIGATION TEST ############################");
+            logger.warn("PAGE NAVIGATION TEST ..");
             WebElement donate = webDriver.findElement(By.linkText("Donate"));
             donate.click();
             Thread.sleep(2000);
@@ -92,7 +92,7 @@ public class HomePageTest {
 
     @Test
     public void sideMenuTest() throws Exception {
-        logger.warn("SIDE MENU TEST ############################");
+        logger.warn("SIDE MENU TEST ..");
         WebElement sideMenuOpen = webDriver.findElement(By.linkText("Menu"));
         sideMenuOpen.click();
         Thread.sleep(2000);
@@ -103,7 +103,7 @@ public class HomePageTest {
 
     @Test
     public void OurSchoolCollegeMenuTest() throws Exception {
-        logger.warn("OUR SCHOOL & COLLEGE SIDE MENU ASSES TEST ############################");
+        logger.warn("OUR SCHOOL & COLLEGE SIDE MENU ASSES TEST ..");
         WebElement ourSchoolCollegeMenuOpen = webDriver.findElement(By.linkText("Our Schools & College"));
         ourSchoolCollegeMenuOpen.click();
         Thread.sleep(2000);
@@ -114,7 +114,7 @@ public class HomePageTest {
 
     @Test
     public void searchButton() throws Exception {
-        logger.warn("SEARCH TOOL TEST ############################");
+        logger.warn("SEARCH TOOL TEST ..");
         WebElement searchButton = webDriver.findElement(By.className("icon-search"));
         searchButton.click();
         Thread.sleep(2000);
@@ -126,7 +126,7 @@ public class HomePageTest {
 
     @After
     public void closeTheDrive() {
-        logger.warn("TEST CASE WAS DONE... CLOSE THE DRIVER ############################");
+        logger.warn("TEST CASE WAS DONE... CLOSE THE DRIVER ..");
         webDriver.quit();
     }
 
