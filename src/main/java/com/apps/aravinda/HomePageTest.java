@@ -126,9 +126,8 @@ public class HomePageTest {
 
     @After
     public void closeTheDrive() {
-        logger.warn("CLOSE THE DRIVER ############################");
+        logger.warn("TEST CASE WAS DONE... CLOSE THE DRIVER ############################");
         webDriver.quit();
-        logger.warn("TEST CASE WAS DONE ############################");
     }
 
 }
