@@ -18,10 +18,17 @@ Run as a binary wrapper
 4.Set Chrome Webdriver path in {project}/conf/path.properties
 5.Run the binary
     ./ambitiousAboutAutismTest start
+6.Check {project}WebPageTest/logs/WebTest.log for more info
+
+Run as a Junit test case from the source code
+---------------------------------------------
+Configuration need to do
+  1)change the path.property file location from "File file = new File("conf/path.properties");"
+    This need to change as "File file = new File("src/main/properties/path.properties");"
+  2)Change the chromeDriverPath path in path.property
+
+1.Open an IDE
+2.Go to {project}/src/main/java/com.apps.aravinda/HomePageTest.java
+3.Run the HomePageTest.java as a junit test run
 
 
-Run as a Junit test case
-------------------------
-Open an IDE
-Go to {project}/src/main/java/com.apps.aravinda/HomePageTest.java
-Run the HomePageTest.java

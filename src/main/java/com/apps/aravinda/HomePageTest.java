@@ -1,5 +1,6 @@
 package com.apps.aravinda;
 
+import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,16 +18,16 @@ import java.util.Properties;
 public class HomePageTest {
 
     private static WebDriver webDriver;
+    private final static Logger logger = Logger.getLogger(HomePageTest.class);
 
     @Before
     public void openBrowser() throws IOException {
+        logger.warn("OPEN-BROWSER METHOD CALLED ############################");
         Properties prop = new Properties();
         InputStream input;
         File file = new File("conf/path.properties");
-
         input = new FileInputStream(file);
         prop.load(input);
-//        System.out.println(prop.getProperty("chromeDriverPath"));
 
         File path = new File(prop.getProperty("chromeDriverPath"));
         System.setProperty("webdriver.chrome.driver", path.getAbsolutePath());
@@ -43,6 +44,7 @@ public class HomePageTest {
     @Test
     public void loginTest() {
         try {
+            logger.warn("LOGIN TEST ############################");
             WebElement login = webDriver.findElement(By.id("block-system-user-menu"));
             login.click();
             Thread.sleep(1000);
@@ -60,52 +62,26 @@ public class HomePageTest {
     }
 
     @Test
-    public void donationTest() {
+    public void pageNavigationTest() {
         try {
+            logger.warn("PAGE NAVIGATION TEST ############################");
             WebElement donate = webDriver.findElement(By.linkText("Donate"));
             donate.click();
             Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void ourWorkPage() {
-        try {
+            webDriver.navigate().back();
+            Thread.sleep(2000);
             WebElement ourWorkPage = webDriver.findElement(By.linkText("Our work"));
             ourWorkPage.click();
             Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void newsPage() {
-        try {
+            webDriver.navigate().back();
             WebElement newsPage = webDriver.findElement(By.linkText("News"));
             newsPage.click();
             Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void aboutUsPage() {
-        try {
+            webDriver.navigate().back();
             WebElement aboutUsPage = webDriver.findElement(By.linkText("About us"));
             aboutUsPage.click();
             Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @Test
-    public void contactUsPage() {
-        try {
+            webDriver.navigate().back();
             WebElement contactUsPage = webDriver.findElement(By.linkText("Contact us"));
             contactUsPage.click();
             Thread.sleep(2000);
@@ -114,10 +90,45 @@ public class HomePageTest {
         }
     }
 
+    @Test
+    public void sideMenuTest() throws Exception {
+        logger.warn("SIDE MENU TEST ############################");
+        WebElement sideMenuOpen = webDriver.findElement(By.linkText("Menu"));
+        sideMenuOpen.click();
+        Thread.sleep(2000);
+        WebElement sideMenuClose = webDriver.findElement(By.linkText("Close"));
+        sideMenuClose.click();
+        Thread.sleep(2000);
+    }
+
+    @Test
+    public void OurSchoolCollegeMenuTest() throws Exception {
+        logger.warn("OUR SCHOOL & COLLEGE SIDE MENU ASSES TEST ############################");
+        WebElement ourSchoolCollegeMenuOpen = webDriver.findElement(By.linkText("Our Schools & College"));
+        ourSchoolCollegeMenuOpen.click();
+        Thread.sleep(2000);
+        WebElement ourSchoolCollegeMenuClose = webDriver.findElement(By.linkText("Close"));
+        ourSchoolCollegeMenuClose.click();
+        Thread.sleep(2000);
+    }
+
+    @Test
+    public void searchButton() throws Exception {
+        logger.warn("SEARCH TOOL TEST ############################");
+        WebElement searchButton = webDriver.findElement(By.className("icon-search"));
+        searchButton.click();
+        Thread.sleep(2000);
+        WebElement searchValue = webDriver.findElement(By.id("edit-search-block-form--2"));
+        searchValue.sendKeys("Test Value");
+        searchValue.submit();
+        Thread.sleep(2000);
+    }
+
     @After
     public void closeTheDrive() {
+        logger.warn("CLOSE THE DRIVER ############################");
         webDriver.quit();
-        System.out.println("DONE...");
+        logger.warn("TEST CASE WAS DONE ############################");
     }
 
 }
